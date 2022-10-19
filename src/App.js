@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Auth from "../src/pages/Auth";
 import Home from "./components/home/home";
 import Homepage from "./pages/Homepage";
+import ViewCart from "./pages/ViewCart";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Auth />} exact />
         <Route path="/homepage" element={<Homepage />} exact />
-        <Route path="/cart" element={""} exact></Route>
+        <Route path="/cart" element={<ViewCart />} exact></Route>
       </Routes>
       </BrowserRouter>
   );
