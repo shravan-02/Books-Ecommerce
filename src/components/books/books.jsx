@@ -1,16 +1,17 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import crackCodingInterview from "../../assets/crack the coding interview.png";
 
+const Books = ({ data }) => {
+  console.log(data);
 
-const Books = ({data}) => {
-
-console.log(data)
-    
   return (
     <>
-      <div class="book" >
+      <div class="book">
         <figure class="book__img--wrapper">
-          <img class="book__img" src={data.coverImg} alt="" />
+          <Link to="/cart">
+            <img class="book__img" src={data.coverImg} alt="" />
+          </Link>
         </figure>
         <div class="book__title">{data.name}</div>
         <div class="book__ratings">

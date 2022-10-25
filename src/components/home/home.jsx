@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import { fetchData } from "../../database";
-
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import crackCodingInterview from "../../assets/crack the coding interview.png";
 import atomicHabits from "../../assets/atomic habits.jpg";
@@ -11,37 +10,37 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Books from "../books/books";
 const Home = () => {
-      const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('https://react-course-e35b0-default-rtdb.firebaseio.com/meetups', {
-    //         method: 'GET'
-    //     })
-    //     .then((response) =>{
-    //         return response.json();
-    //     })
-    //     .then((data) => {
-    //         const bookIcons = []
-    //         for (const key in data){
-    //             const bookIcon = {
-    //                 id: key,
-    //                 ...data(key)
-    //             }
-    //             bookIcons.push(bookIcon)
-    //         }
-    //         setBookData(bookIcons)
-    //         console.log(data)
-    //     })
-    // }, [])
+  // useEffect(() => {
+  //     fetch('https://react-course-e35b0-default-rtdb.firebaseio.com/meetups', {
+  //         method: 'GET'
+  //     })
+  //     .then((response) =>{
+  //         return response.json();
+  //     })
+  //     .then((data) => {
+  //         const bookIcons = []
+  //         for (const key in data){
+  //             const bookIcon = {
+  //                 id: key,
+  //                 ...data(key)
+  //             }
+  //             bookIcons.push(bookIcon)
+  //         }
+  //         setBookData(bookIcons)
+  //         console.log(data)
+  //     })
+  // }, [])
 
+  useEffect(() => {
+    const fetchBookData = () => {
+      fetchData("books", setData);
+    };
+    fetchBookData();
+  }, []);
 
-    useEffect(() => {
-        const fetchBookData = () => {
-          fetchData('books',setData)
-      }
-        fetchBookData();
-       
-      }, [])
+  const navigate = useNavigate();
   return (
     <>
       <div>
@@ -92,8 +91,9 @@ const Home = () => {
                 Featured <span class="purple">Books</span>
               </h2>
               <div class="books">
-
-                {data.map(book => <Books data={book.data} />)}
+                {data.map((book) => (
+                  <Books data={book.data} />
+                ))}
               </div>
             </div>
           </div>
@@ -105,14 +105,14 @@ const Home = () => {
             <h2>
               Explore more <span class="purple">books</span>
             </h2>
-            <a href="#features">
-              <button class="btn">Browse books</button>
+            <a>
+              <button class="btn" onClick={() => navigate("/cart")}>Browse books</button>
             </a>
           </div>
         </div>
       </section>
       <Footer />
-    </> 
+    </>
   );
 };
 

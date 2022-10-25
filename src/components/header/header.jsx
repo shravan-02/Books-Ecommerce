@@ -1,6 +1,8 @@
 import React from "react";
-import booksImg from "../../assets/Undraw_Books.svg"
+import { useNavigate } from "react-router-dom";
+import booksImg from "../../assets/Undraw_Books.svg";
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <header>
@@ -10,8 +12,10 @@ const Header = () => {
             <h2>
               Find your dream book with <span class="purple">Library</span>
             </h2>
-            <a href="#features">
-              <button class="btn">Browse books</button>
+            <a>
+              <button class="btn" onClick={() => navigate("/cart")}>
+                Browse books
+              </button>
             </a>
           </div>
           <figure class="header__img--wrapper">

@@ -15,7 +15,7 @@ const Auth = () => {
     <AppContainer>
       <AccountBox />
       <p className='trademark'> 
-        Made by Shirya and Shravan 🫱🏻‍🫲🏾
+        Made by Shriya and Shravan 🫱🏻‍🫲🏾
         <p>
           Usability Design : Dr. Anand
         </p>

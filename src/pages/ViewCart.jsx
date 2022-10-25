@@ -1,11 +1,9 @@
 import React from 'react'
-import Cart from '../components/cart/cart'
+import Store from '../components/cart/Store'
 
 const ViewCart = () => {
   return (
-    <div>
-        <Cart />
-    </div>
+        <Store />
   )
 }
 

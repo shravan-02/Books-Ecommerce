@@ -10,7 +10,10 @@ const Navbar = () => {
                 <img class = "logo" src={library} alt="" />
                 <ul class="nav__links">
                     <li> <a href="#" class="nav__link">Home</a></li>
+                    <Link to='/cart' >
+
                     <li> <a href="#" class="nav__link">Cart</a></li>
+                    </Link>
                     <Link to='/' >
 
                     <li> <a href="#" class="nav__link nav__link--primary">Logout</a></li>
